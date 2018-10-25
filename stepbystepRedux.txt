@@ -1,0 +1,37 @@
+
+
+1. you have to install redux and react-redux
+2.inside index.js you have to create an instance of a store and pass it a reducer
+ a)import create store from redux
+ b) craete variable store with value of createstore function called with the reducer as parameter
+ c)simple apps will have only one reducer...complicated will havw several amnd will need to combine them.
+ d) for several...create reducer folder and create the reducers youre using plus a root reducer file.
+ e)in each reducer file create a variable which holds a es6 arrow function which has 2 parameters: state={initState}, and action....this unction retrns the state
+
+ ex const authReducer = (state={initState}, action) =>{
+ 	return state;
+ }
+
+ you must create an initState object to be passed in to the function incase their is no state within. and then export the function
+ 
+ f) in the rootReducer file...import combineReducers from redux
+
+ import all your reducer files
+
+ create const variable named rootReucer and set it equal to initiation of combineReducers and pass in as an object a name value pair for each reducer
+
+ ex....
+
+ const rootreducer = combineReducers({
+ 	auth: authReducer,
+ 	note: notereducers
+ })
+
+ and export rootReducer to be passed in to the createStore function in index.js
+
+
+ g0 in index.js import the root reducer variable 
+ 	then pass that variable into createStore()
+
+ import provider from react-redux
+ and wrap  app inside provider passing the tag a prop of store which is set = to the variable store that contained the instantiation of the create store function.
